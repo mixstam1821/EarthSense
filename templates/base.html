@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EarthSense{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">EarthSense</a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="/intro" class="nav-link {% if active_page == 'intro' %}active{% endif %}">Intro</a></li>
+
+                <li><a href="http://localhost:9798/app2_mirror" target="_blank" class="nav-link {% if active_page == 'app2_mirror' %}active{% endif %}">EarthSense1</a></li>
+                <li><a href="http://localhost:9798/app3_mirror" target="_blank" class="nav-link {% if active_page == 'app3_mirror' %}active{% endif %}">EarthSense2</a></li>
+                <li><a href="http://localhost:9798/app1_mirror" target="_blank" class="nav-link {% if active_page == 'app1_mirror' %}active{% endif %}">EarthSense3</a></li>
+
+                <li><a href="/about" class="nav-link {% if active_page == 'about' %}active{% endif %}">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

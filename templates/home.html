@@ -1,0 +1,96 @@
+<div id="particles-js"></div>
+
+{% extends "base.html" %}
+
+{% block title %}Home - EarthSense{% endblock %}
+
+{% block content %}
+<style>
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none; /* Ensures it does NOT block user interactions */
+
+}
+
+    /* Gradient background for the entire page */
+
+    body {
+    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%); /* Diagonal gradient from black to dark green */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+</style>
+
+<div class="hero">
+    <h1>Welcome to EarthSense</h1>
+    <p>Interactive Exploration of my PhD:</p>
+
+    <p>
+        Detailed assessment of the global dimming and brightening of the Earth under all sky and clear sky conditions using modern tools and long-term climate data.
+    </p>
+</div>
+<img src="static/EarthSense1.png" style="margin-left: -300px; margin-top: -250px; width: 350px; height: auto; border-radius: 8px;" alt="EarthSense" />
+
+<div class="feature-grid">
+    <div class="feature-card">
+        <h3>EarthSense 1</h3>
+        <p>Explore the FMC-RTM SSR.</p>
+        <img src="/static/app1qq.png" alt="Scatter Preview" style="width: 300px; height: 200px;" class="feature-image">
+
+        <a href="http://localhost:9798/app2_mirror" class="btn" target="_blank">Explore</a>
+    </div>
+    <div class="feature-card">
+        <h3>EarthSense 2</h3>
+        <p>Evaluation of the FMC-RTM SSR and GDB.</p>
+        <img src="/static/app2qq.png" alt="Line Preview" style="width: 300px; height: 200px;" class="feature-image">
+
+        <a href="http://localhost:9798/app3_mirror" class="btn" target="_blank">Explore</a>
+    </div>
+    <div class="feature-card">
+        <h3>EarthSense 3</h3>
+        <p>GDB Drivers and Climate.</p>
+        <img src="/static/app3qq.png" alt="Heatmap Preview" style="width: 300px; height: 200px;" class="feature-image">
+
+        <a href="http://localhost:9798/app1_mirror" class="btn" target="_blank">Explore</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+
+    // Particles.js configuration
+    particlesJS('particles-js',
+    {
+    "particles": {
+      "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.4 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true, "distance": 150,
+        "color": "#ffffff", "opacity": 0.2, "width": 1
+      },
+      "move": { "enable": true, "speed": 1.5 }
+    }
+  }
+    );
+
+
+
+
+</script>
+{% endblock %}
