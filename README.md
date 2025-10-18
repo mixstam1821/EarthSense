@@ -10,12 +10,20 @@ PhD Thesis: Detailed assessment of the global dimming and brightening of the Ear
 
 ## Installation
 0. Download the data:
+   ```bash
+   chmod +x download_data.sh
+   ./download_data.sh
+   ```
+   
+   -OR-
+   
+   Download it manually:
    a) Go here https://zenodo.org/records/17382343
    b) Find and click "Download all"
    c) A zip file around 930MB will be downloaded.
    d) Extract them inside EarthSense/data/ directory.
 
-2. Clone the repository:
+1. Clone the repository:
 ```bash
 git clone https://github.com/mixstam1821/EarthSense.git
 cd EarthSense
@@ -32,24 +40,23 @@ source earthsensevenv/bin/activate  # On Windows: earthsensevenv\Scripts\activat
 pip install -r requirements.txt
 ```
 
-## Running the Application
-
-1. Make the start script executable:
+4. Make the start script executable:
 ```bash
 chmod +x start.sh
 ```
 
-2. Start all servers using the start script:
+5. Start all servers using the start script:
 ```bash
 ./start.sh
 ```
 
-3. Open your browser and navigate to:
+6. Open your browser and navigate to:
 ```
 http://0.0.0.0:9797/
 ```
 
-OR 
+-OR-
+
 Use Docker:
 
 1. Clone the repository:
