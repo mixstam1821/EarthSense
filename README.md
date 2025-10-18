@@ -41,7 +41,31 @@ chmod +x start.sh
 
 3. Open your browser and navigate to:
 ```
-[http://localhost:9797](http://0.0.0.0:9797/)
+http://0.0.0.0:9797/
+```
+
+OR 
+Use Docker:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/mixstam1821/EarthSense.git
+cd EarthSense
+```
+
+2. Build the Docker image (the dot . means "current folder")
+```bash
+docker build -t EarthSense .
+```
+
+3. Run the container and expose port 9797
+```bash
+docker run -p 9797:9797 EarthSense
+```
+
+4. Open your browser and navigate to:
+```
+http://0.0.0.0:9797/
 ```
 
 ## Structure
