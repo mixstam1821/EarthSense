@@ -9,8 +9,13 @@ PhD Thesis: Detailed assessment of the global dimming and brightening of the Ear
 3) Investigate the SSR changes, their causes and their links with other climatic variables.
 
 ## Installation
+0. Download the data:
+   a) Go here https://zenodo.org/records/17382343
+   b) Find and click "Download all"
+   c) A zip file around 930MB will be downloaded.
+   d) Extract them inside EarthSense/data/ directory.
 
-1. Clone the repository:
+2. Clone the repository:
 ```bash
 git clone https://github.com/mixstam1821/EarthSense.git
 cd EarthSense
