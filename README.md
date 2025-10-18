@@ -9,7 +9,13 @@ PhD Thesis: Detailed assessment of the global dimming and brightening of the Ear
 3) Investigate the SSR changes, their causes and their links with other climatic variables.
 
 ## Installation
-0. Download the data:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/mixstam1821/EarthSense.git
+cd EarthSense
+```
+2. Download the data:
    ```bash
    chmod +x download_data.sh
    ./download_data.sh
@@ -22,35 +28,29 @@ PhD Thesis: Detailed assessment of the global dimming and brightening of the Ear
    b) Find and click "Download all"
    c) A zip file around 930MB will be downloaded.
    d) Extract them inside EarthSense/data/ directory.
-
-1. Clone the repository:
-```bash
-git clone https://github.com/mixstam1821/EarthSense.git
-cd EarthSense
-```
-
-2. Create a virtual environment (optional but recommended):
+   
+3. Create a virtual environment (optional but recommended):
 ```bash
 python -m venv earthsensevenv
 source earthsensevenv/bin/activate  # On Windows: earthsensevenv\Scripts\activate
 ```
 
-3. Install dependencies:
+4. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Make the start script executable:
+5. Make the start script executable:
 ```bash
 chmod +x start.sh
 ```
 
-5. Start all servers using the start script:
+6. Start all servers using the start script:
 ```bash
 ./start.sh
 ```
 
-6. Open your browser and navigate to:
+7. Open your browser and navigate to:
 ```
 http://0.0.0.0:9797/
 ```
@@ -64,18 +64,31 @@ Use Docker:
 git clone https://github.com/mixstam1821/EarthSense.git
 cd EarthSense
 ```
+2. Download the data:
+   ```bash
+   chmod +x download_data.sh
+   ./download_data.sh
+   ```
+   
+   -OR-
+   
+   Download it manually:
+   a) Go here https://zenodo.org/records/17382343
+   b) Find and click "Download all"
+   c) A zip file around 930MB will be downloaded.
+   d) Extract them inside EarthSense/data/ directory.
 
-2. Build the Docker image (the dot . means "current folder")
+3. Build the Docker image (the dot . means "current folder")
 ```bash
 docker build -t earthsense .
 ```
 
-3. Run the container and expose port 9797
+4. Run the container and expose port 9797
 ```bash
 docker run -p 9797:9797 earthsense
 ```
 
-4. Open your browser and navigate to:
+5. Open your browser and navigate to:
 ```
 http://0.0.0.0:9797/
 ```
