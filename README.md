@@ -67,12 +67,12 @@ cd EarthSense
 
 2. Build the Docker image (the dot . means "current folder")
 ```bash
-docker build -t EarthSense .
+docker build -t earthsense .
 ```
 
 3. Run the container and expose port 9797
 ```bash
-docker run -p 9797:9797 EarthSense
+docker run -p 9797:9797 earthsense
 ```
 
 4. Open your browser and navigate to:
