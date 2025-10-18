@@ -8,6 +8,13 @@ PhD Thesis: Detailed assessment of the global dimming and brightening of the Ear
 2) See the evaluation of modelled SSR against ground-truth measurements by the GEBA network. Map with stations, click on them and see the annual cycle, the monthly timeseries, the scatter plot and evaluation metrics between modelled SSR and GEBA stations.
 3) Investigate the SSR changes, their causes and their links with other climatic variables.
 
+## Demo
+![Demo](static/ES1.gif)
+![Demo](static/ES2.gif)
+![Demo](static/ES3.gif)
+![Demo](static/ES4.gif)
+![Demo](static/ES5.gif)
+
 ## Installation
 
 1. Clone the repository:
