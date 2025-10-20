@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - EarthSense</title>
+    {{ bokeh_head }}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #00a8e8;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body {
+            background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
+            color: var(--text-primary);
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(11, 132, 145, 0.5);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar-brand:hover {
+            color: #00a8e8; 
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            background: rgba(11, 132, 145, 0.6);
+        }
+
+        .navbar-links a.active {
+            background: rgba(11, 132, 145, 0.8);
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+
+        }
+
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .accordion-button {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #9fcbf7;
+            color: #2c3e50;
+        }
+
+        .accordion-body {
+            background-color: #d1c7c7;
+            padding: 20px;
+            border: 3px solid #fc9183;
+            border-top: none;
+            color: #2c3e50;
+        }
+
+        .accordion-item {
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .accordion-body ul {
+            margin-left: 20px;
+        }
+
+        .accordion-body li {
+            margin-bottom: 8px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .profile-section img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-section div {
+            flex: 1;
+        }
+
+        iframe {
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        /* Hide empty bokeh document */
+        .bk-root:empty {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-end; /* 💥 keep them on the right */
+            }
+        
+            .navbar-links {
+                flex-wrap: wrap;
+                justify-content: flex-end; /* 💥 stays right-aligned */
+            }
+    
+
+            .profile-section {
+                flex-direction: column;
+            }
+
+            .profile-section img {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/landing" class="navbar-brand">🌍 EarthSense</a>
+            <ul class="navbar-links">
+                <li><a href="/landing">Home</a></li>
+                <li><a href="/intro">Introduction</a></li>
+                <li><a href="/about" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left Column: About EarthSense -->
+                <div class="col-md-6">
+                    <div class="accordion" id="aboutAccordion">
+                        <!-- About EarthSense -->
+                        <div class="accordion-item" data-aos="fade-up">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    About EarthSense 🌍☀️
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        EarthSense is a powerful interactive visualization platform that represents the results of my PhD.
+                                        It allows users to explore the data and insights from my study. With a range of features and tools,
+                                        EarthSense empowers users to make informed decisions and gain a deeper understanding of the Global Dimming and Brightening, 
+                                        the causes of this phenomenon and the potential relationship with other climate variables.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Features 🌟
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>General Climate Explorer</li>
+                                        <li>Dynamic updates</li>
+                                        <li>Rich interactions</li>
+                                        <li>Click or select region to get the corresponding data</li>
+                                        <li>Display large amounts of climatic data fast and in a user-friendly way</li>
+                                        <li>Comfortable viewing and Introduction</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technology Stack -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Technology Stack 🛠
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Bokeh - For creating interactive visualizations</li>
+                                        <li>Python - Core programming language</li>
+                                        <li>HTML/CSS - Frontend styling with modern design principles</li>
+                                        <li>Bootstrap - Responsive design framework</li>
+                                        <li>Particles.js - Interactive background animations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Performance 🚀🔥
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        Built with performance in mind, EarthSense leverages Bokeh's efficient data handling 
+                                        to provide a smooth user experience even with large datasets.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Data 📊
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>FORTH-RTM: Vardavas and Taylor (2011) | Stamatis et al., 2023 (https://doi.org/10.3390/atmos14081258)</li>
+                                        <li>CLARISC: Stamatis et al., 2025 (https://doi.org/10.1016/j.atmosres.2025.108140)</li>
+                                        <li>MERRA-2: https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/docs/ | Ronald Gelaro, et al., 2017, J. Clim., doi: 10.1175/JCLI-D-16-0758.1 | Korras-Carraca et al., 2021 (https://doi.org/10.3390/atmos12101254)</li>
+                                        <li>ERA5: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means?tab=overview | Hersbach, H. et al. (2020), Q. J. Clim., 12, 3803, https://doi.org/10.1002/qj.3803</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: About Me & Contact -->
+                <div class="col-md-6">
+                    <div class="accordion" id="contactAccordion">
+                        <!-- About Me -->
+                        <div class="accordion-item" data-aos="fade-up">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                    About Me 🧑‍💻
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#contactAccordion">
+                                <div class="accordion-body">
+                                    <div class="profile-section">
+                                        <img src="/about/static/MIKE.jpg" alt="Dr. Michael Stamatis" />
+                                        <div>
+                                            <p>
+                                                Hello! I am Dr. Michael Stamatis, a software and data engineer with roots in Physics and expertise in Atmospheric Sciences.
+                                                Driven by a passion for science, technology, and innovation, I aim to deliver powerful tools that help businesses and the scientific community thrive in the digital age.
+                                            </p>
+                                            <p>
+                                                <strong>StamazingApps:</strong> my personal umbrella under which I design and develop scientific and business software tools.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Contact Information 📞🌐
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#contactAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        If you have any questions or would like to collaborate, feel free to reach out to me. 
+                                        I am always excited to hear from potential clients and partners!
+                                    </p>
+                                    <ul>
+                                        <li><strong>Email:</strong> mixstam1453@gmail.com</li>
+                                        <li><strong>Phone:</strong> +30 6949621017</li>
+                                        <li><strong>Address:</strong> Katakouzinou 1, Thessaloniki, Greece</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Donate -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Donate 😊🎁
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#contactAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        If you want to support me, feel free to communicate with me.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive HTML -->
+            <iframe src="/about/static/charm_logo_interactive3.html" width="100%" height="600px" style="border: none; margin-top: 40px; border-radius: 8px;"></iframe>
+        </div>
+    </div>
+
+    {{ document }}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#4a90e2"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#4a90e2",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

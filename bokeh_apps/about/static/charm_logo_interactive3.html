@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts Globe - Cosmic View</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@3.8.0/map/js/world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MonteCarlo">
+
+
+    <style>
+                @keyframes flicker {
+            0% { text-shadow: 0 0 10px #ff5733, 0 0 20px #ff8d33, 0 0 30px #ffbd33; }
+            50% { text-shadow: 0 0 15px #ff6f33, 0 0 25px #ff9c33, 0 0 35px #ffd133; }
+            100% { text-shadow: 0 0 10px #ff5733, 0 0 20px #ff8d33, 0 0 30px #ffbd33; }
+        }
+        body, html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000008;
+            overflow: hidden;
+        }
+        #main {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+        .title-overlay {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            pointer-events: none;
+        }
+        .main-title {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin: 0;
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 2px;
+            letter-spacing: 3px;
+            opacity: 0.9;
+        }
+        .subtitle2 {
+            font-size: 1.8em;
+            margin-top: 699px;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            color: #fdd908;
+            font-family: 'MonteCarlo';
+            animation: flicker 0.2s infinite alternate;
+            
+        }
+        #star-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(128, 0, 128, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
+                radial-gradient(circle at 70% 50%, rgba(0, 0, 255, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="star-background"></canvas>
+    <div class="nebula"></div>
+    <div class="title-overlay">
+        <h1 class="main-title">StamazingApps</h1>
+        <div class="subtitle">creating digital solutions</div>
+        <div class="subtitle2">by Michael Stamatis</div>
+
+    </div>
+    <div id="main"></div>
+    <script>
+        // Star background animation
+        const canvas = document.getElementById('star-background');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+
+        // Star properties
+        const stars = [];
+        const numStars = 400;
+        const starColors = ['#ffffff', '#ffe9c4', '#d4fbff', '#fff4e8'];
+
+        // Initialize stars
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                color: starColors[Math.floor(Math.random() * starColors.length)],
+                speed: Math.random() * 0.2
+            });
+        }
+
+        // Animate stars
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.fill();
+
+                // Twinkle effect
+                if (Math.random() > 0.99) {
+                    star.size = Math.random() * 2;
+                }
+
+                // Move stars
+                star.x += star.speed;
+                if (star.x > canvas.width) {
+                    star.x = 0;
+                }
+            });
+
+            requestAnimationFrame(animateStars);
+        }
+
+        animateStars();
+
+        // Globe visualization code (unchanged)
+        document.addEventListener("DOMContentLoaded", function () {
+            const THESSALONIKI_COORDS = [22.9444, 40.6401];
+
+
+            // Define major cities across continents
+            const MAJOR_CITIES = {
+                // Europe
+                "London": [-0.1276, 51.5074],
+                "Paris": [2.3522, 48.8566],
+                "Berlin": [13.4050, 52.5200],
+                "Moscow": [37.6173, 55.7558],
+                "Rome": [12.4964, 41.9028],
+                
+                // Asia
+                "Beijing": [116.4074, 39.9042],
+                "Tokyo": [139.6917, 35.6895],
+                "Dubai": [55.2708, 25.2048],
+                "Mumbai": [72.8777, 19.0760],
+                "Singapore": [103.8198, 1.3521],
+                
+                // Americas
+                "New York": [-74.0059, 40.7128],
+                "Los Angeles": [-118.2437, 34.0522],
+                "São Paulo": [-46.6333, -23.5505],
+                "Mexico City": [-99.1332, 19.4326],
+                "Toronto": [-79.3832, 43.6532],
+                
+                // Africa
+                "Cairo": [31.2357, 30.0444],
+                "Lagos": [3.3792, 6.5244],
+                "Johannesburg": [28.0473, -26.2041],
+                "Nairobi": [36.8219, -1.2921],
+                "Casablanca": [-7.5898, 33.5731],
+                
+                // Oceania
+                "Sydney": [151.2093, -33.8688],
+                "Melbourne": [144.9631, -37.8136],
+                "Auckland": [174.7633, -36.8485]
+            };
+
+            // Define some interesting ocean points
+            const OCEAN_POINTS = [
+                // Atlantic Ocean
+                [-40.0, 25.0],
+                [-45.0, -15.0],
+                [-30.0, 0.0],
+                // Pacific Ocean
+                [-150.0, 30.0],
+                [170.0, -20.0],
+                [-120.0, -30.0],
+                // Indian Ocean
+                [80.0, -20.0],
+                [90.0, -10.0],
+                [70.0, -30.0]
+            ];
+
+
+            function initChart() {
+                const myChart = echarts.init(document.getElementById('main'));
+                let canvas = document.createElement('canvas');
+                let baseTexture = echarts.init(canvas, null, {
+                    width: 4096,
+                    height: 2048,
+                });
+
+                baseTexture.setOption({
+                    backgroundColor: 'rgba(30, 40, 139, 0.8)',
+                    geo: {
+                        show: true,
+                        type: 'map',
+                        map: 'world',
+                        roam: true,
+                        left: 0,
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        boundingCoords: [[-180, 90], [180, -90]],
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#8793D4',
+                                borderColor: '#000',
+                                borderWidth: 1,
+                            },
+                            emphasis: {
+                                areaColor: '#DADCF5',
+                                borderWidth: 0,
+                            },
+                        },
+                        regions: [
+                            { name: 'Greece', itemStyle: { areaColor: '#aa381e' } },
+                        ],
+                    },
+                });
+
+                let option = {
+                    backgroundColor: 'transparent',
+                    globe: {
+                        baseTexture: baseTexture,
+                        shading: 'color',
+                        light: {
+                            ambient: { intensity: 0.4 },
+                            main: { intensity: 0.4 },
+                        },
+                        viewControl: {
+                            // targetCoord: THESSALONIKI_COORDS,
+                            autoRotate: false,
+                            distance: 210,
+                            alpha: 30,
+                            beta: 130,
+                        },
+                        
+                    },
+                    series: [
+                        {
+                            type: 'lines3D',
+                            coordinateSystem: 'globe',
+                            effect: {
+                                show: true,
+                                trailWidth: 3,
+                                trailOpacity: 1,
+                                trailLength: 0.2,
+                                constantSpeed: 5,
+                            },
+                            blendMode: 'lighter',
+                            lineStyle: { color: '#EBE806', width: 1, opacity: 1 },
+                            data: Object.values(MAJOR_CITIES).map(coords => [THESSALONIKI_COORDS, coords])
+                        },
+                        {
+                            name: 'ocean-lines',
+                            type: 'lines3D',
+                            coordinateSystem: 'globe',
+                            effect: {
+                                show: true,
+                                trailWidth: 3,
+                                trailOpacity: 0.8,
+                                trailLength: 0.3,
+                                constantSpeed: 10,
+                            },
+                            blendMode: 'lighter',
+                            lineStyle: { color: 'rgb(253, 168, 22)', width: 1, opacity: 0.8 },
+                            data: OCEAN_POINTS.map(coords => [THESSALONIKI_COORDS, coords])
+                        },
+                        {
+                            name: 'random-lines',
+                            type: 'lines3D',
+                            coordinateSystem: 'globe',
+                            effect: { show: true },
+                            blendMode: 'lighter',
+                            lineStyle: { width: 2, color: 'rgb(28, 203, 9)' },
+                            data: generateRandomRoutesToCities(20),
+                            silent: false,
+                        }
+                    ],
+                };
+                
+                myChart.setOption(option, true);
+
+                window.addEventListener('resize', function() {
+                    myChart.resize();
+                });
+            }
+            
+            function generateRandomRoutesToCities(count) {
+                const lines = [];
+                const cities = Object.values(MAJOR_CITIES);
+                
+                for (let i = 0; i < count; i++) {
+                    const randomCity = cities[Math.floor(Math.random() * cities.length)];
+                    const variation = 5;
+                    const destinationCoords = [
+                        randomCity[0] + (Math.random() - 0.5) * variation,
+                        randomCity[1] + (Math.random() - 0.5) * variation
+                    ];
+                    
+                    lines.push({
+                        coords: [
+                            THESSALONIKI_COORDS,
+                            destinationCoords
+                        ],
+                        value: (Math.random() * 3000).toFixed(2)
+                    });
+                }
+                return lines;
+            }
+            
+            initChart();
+        });
+    </script>
+</body>
+</html>

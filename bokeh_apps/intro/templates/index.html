@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Introduction - EarthSense</title>
+    {{ bokeh_head }}
+
+
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Copy the same styles from landing page */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; }
+        body { background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%); color: white; font-family: Arial, sans-serif; min-height: 100vh; }
+        .navbar { position: relative; z-index: 10; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 2px solid rgba(11, 132, 145, 0.5); }
+        .navbar-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .navbar-brand { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .navbar-links { display: flex; gap: 20px; list-style: none; }
+        .navbar-links a { color: rgba(255, 255, 255, 0.9); text-decoration: none; padding: 8px 16px; border-radius: 5px; transition: all 0.3s; }
+        .navbar-links a:hover { background: rgba(11, 132, 145, 0.6); }
+        .navbar-links a.active { background: rgba(11, 132, 145, 0.8); }
+        .content { position: relative; z-index: 1; max-width: 1100px; margin: 60px auto; padding: 40px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; }
+        h1 { font-size: 2.5rem; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+
+
+          h1 {
+        color: #FFD700;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+    h2, h4 {
+        text-align: center;
+        margin-bottom: 18px;
+    }
+    h2 {
+        color: #FFD700;
+        margin-top: 42px;
+    }
+    h4 {
+        color: #fff;
+        font-size: 19px;
+        font-style: italic;
+    }
+    .fancy-heading {
+        color: #FFD700;
+    }
+    .fancy-text22 {
+        font-size: 1rem;
+        color: #eee;
+        line-height: 1.7;
+    }
+    ul.fancy-text22 {
+        padding-left: 24px;
+    }
+    ul.fancy-text22 li {
+        margin-bottom: 18px;
+    }
+    a {
+        color: #FFD700;
+        text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+            .container { width: 96%; padding: 10px;}
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/landing" class="navbar-brand">🌍 EarthSense</a>
+            <ul class="navbar-links">
+                <li><a href="/landing">Home</a></li>
+                <li><a href="/intro" class="active">Introduction</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="content" data-aos="fade-up">
+    <h1>Global Dimming and Brightening</h1>
+    <h4>
+        A summary of my PhD thesis examining the GDB using a radiative transfer model, its causes and climatic implications
+    </h4>
+    <div class="fancy-text22" style="text-align: justify;">
+        <p>
+        The benefits of radiative transfer model calculations using input data from satellite observations and reanalyses are that they enable long-term and global coverage for the key climate parameters that determine SSR and its long-term changes (GDB). However, even more important is that radiative transfer modeling provides the unique ability, by controlling the RTM input parameters, to examine their effects on the calculated solar fluxes and thus disentangle the phenomenon and determine its causes. This is crucial in order to gain a deeper understanding of GDB, to perceive its interplay and interaction with other climatic phenomena and to make plausible future forecasts. The advantages of this approach were exploited in the present work where the GDB, its causes and the possible links with global warming rates were investigated for the 35-year period 1984-2018. To this aim, radiative transfer calculations were performed by the FORTH-RTM on a monthly basis and 0.5°x0.625° spatial resolution using modern and improved satellite and reanalysis datasets for clouds and aerosols, respectively. This analysis was also performed on decadal time periods of the entire study period, since GDB is a decadal scale phenomenon. It has been also done worldwide, hemispherically, over ocean and land, and over specific land areas, enabling a complete understanding of the spatial and temporal features of GDB on a climatological basis all over the world. In the first part of the study, the FORTH RTM ran to provide the SSR and the corresponding GDB was computed. In the second part of the study, the reliability of the FORTH-RTM SSR and GDB was investigated. The results are reliable, as proven from their evaluation against data from reference global station networks. In the third step, the causes of GDB investigated based on the trends of the SSR and the input parameters to the FORTH-RTM.
+        </p>
+        <p>
+        Furthermore, the contribution to GDB of each input parameter P was computed. In order to identify and determine more accurately the GDB drivers, namely the contribution of changes in clouds (cloud amount-CA and cloud optical thickness-COT of low, middle, high-level clouds), aerosol optical properties (AOD, SSA and AP), water vapor and ozone to GDB during the 35-year period 1984-2018, another method was applied. According to this, the contribution to GDB (in Wm⁻²) of each physical input parameter P is estimated through two RTM runs in which, first, the P parameter is kept ‘frozen’ at its initial conditions, that is those in the first year of the study period, i.e. 1984, and second all the input parameters were activated (main RTM run). Next, the changes of SSR (GDB) have been estimated based on the two RTM runs. Then, from the difference between the GDB of the main RTM run, with all parameters being activated, and the GDB from runs with ‘frozen’ P parameters, the contribution of the P parameter to the overall GDB was estimated. When the contribution of a parameter is positive (reddish colors on the maps), it means that the changes of the P parameter resulted in an increase of SSR, and the interdecadal changes of this parameter contributed to, or partially caused, the estimated brightening or counteracted the estimated dimming. On the other hand, if the contribution of one parameter is negative (bluish colors on the maps below), it means that the changes of P parameter resulted in a decrease of SSR and the interdecadal changes of this parameter contributed to, or partially caused, the estimated dimming or counteracted the estimated brightening. It should be noted that the study period encompasses and coincides with the rapid anthropogenic warming occurring since the early 1980s. Thus, the role of solar dimming and brightening (decadal changes in SSR) in relation to the recent global warming was also examined in the present study. The main conclusions are outlined below:
+        </p>
+        <ul class="fancy-text22">
+            <li>The FORTH-RTM results are reliable, as proven from their evaluation against data from reference global station networks. The model SSR fluxes and their anomalies correlate very well with GEBA and BSRN ground-based stations. The R is equal to 0.97 using SSR fluxes or 0.75 using deseasonalized SSR anomalies against GEBA and 0.94 using SSR fluxes or 0.71 using deseasonalized SSR anomalies, against BSRN. On a station level, the computed R values range from −0.21 to 0.98, but the majority of them (70%) are higher than 0.7, with the lowest values occurring in low latitudes, possibly due to uncertainties in the cloud and aerosol input data.</li>
+            <li>In general, there is a relatively small overestimation of FORTH-RTM SSR compared to GEBA and a weak underestimation compared to BSRN measurements. The mean bias being equal to 4.46 Wm⁻² and −2.49 Wm⁻² or 2.7% and −1.3%, respectively. The FORTH-RTM stronger overestimates SSR at low latitudes, probably because of an underestimation of changes in cloud cover and aerosol optical depth data in these regions. The general overestimation suggests that the atmosphere of FORTH-RTM is more transparent than it should be. The average RMSE value is equal to 20.93 Wm⁻² (equivalent to 12.8%) for the comparison of FORTH-RTM with GEBA, while the corresponding value for BSRN is equal to 29.02 Wm⁻² or 15.4%, pointing to a rather small deviation of the modeled from the measured SSR. The largest RMSE values exist in low and high-latitude regions.</li>
+            <li>The comparison of the time series of 12-month moving averages between FORTH-RTM SSR anomalies and GEBA/BSRN sites shows a larger model than station SSR anomalies, negative at the beginning of the study period and positive after 2010, which can affect the computed GDB. Indeed, the FORTH-RTM SSR trends show a stronger brightening than the stations’ trends.</li>
+            <li>The model estimated GDB nicely agrees in terms of sign with the stations, namely for 80% of GEBA and 65% of BSRN stations, while the agreement is even better for statistically significant trends (for 90% of GEBA and 88% of BSRN). A similar evaluation was also conducted separately for the 4 decades of the study period and the agreement was again very good (ranging from 62% to 73%). For Europe, India, and Japan, there is a strong agreement between the FORTH-RTM and stations in terms of GDB signs, putting confidence in the qualitative GDB patterns in these world areas. On the other hand, the FORTH-RTM presents a weak agreement against stations in terms of the SSR changes’ magnitude. More specifically, it overestimates the brightening of most sites. This could be due to inadequate model input data, but also to issues with the stations’ measurements of their own.</li>
+            <li>Also, the evaluations against ground truth performed and inter-compared for several SSR and GDB datasets during 1984-2018 and 2001-2018. The results of this inter-comparison approved that FORTH-RTM is a top-performing model in qualitative agreement for GDB (better than the previous versions of this model) when compared to observational measurements, further reinforcing its reliability. Additionally, FORTH-RTM ranks among the best-performing datasets for SSR, enhancing confidence in its ability to study long-term GDB trends on a global scale.</li>
+            <li>The model indicates a global mean brightening (increasing SSR) from 1984 to 2018, equal to 0.88 Wm⁻²decade⁻¹. This brightening is observed in 63% of the global grid points. Both land and ocean regions of the world underwent brightening; yet the land increase is stronger than the oceans (2.57 Wm⁻²decade⁻¹ vs 0.19 Wm⁻²decade⁻¹). Also, a stronger brightening occurred over the NH, equal to 1.4 Wm⁻²decade⁻¹, versus the weak brightening of 0.39 Wm⁻²decade⁻¹ over the SH. All the above SSR changes are statistically significant at the 95% confidence level. The spatially averaged GDB conceals diversified, in terms of sign and magnitude, patterns. Thus, strong tendencies toward brightening are noteworthy over Europe, the Americas, the Tibetan Tableau, Indonesia, Antarctica, Australia and some oceanic regions, whereas the dimming dominates over parts of China and India, the Arabian Peninsula, the Sahara, the Arctic, the Southern Ocean and the marine stratocumulus areas. These results revise the findings of a previous study which suggested a global dimming over the same period, and this revision is due to more realistic cloud information (CLARISC instead of ISCCP-H cloud dataset).</li>
+            <li>Over the four decades, surface solar radiation (SSR) exhibited distinct trends. In the 1980s, a weak global dimming (-0.07 %decade⁻¹) occurred, followed by a significant brightening in the 1990s (+2.43 %decade⁻¹) due to large reductions in aerosol optical depth (AOD) and cloud optical thickness (COT). The 2000s saw a weaker global brightening (+0.74 %decade⁻¹) as increases in aerosols and low/high cloud amounts were partially offset by reductions in COT and mid-level cloud amount. Finally, the 2010s experienced another period of brightening (+0.83 %decade⁻¹), driven by reductions in both clouds and aerosols, particularly over land.</li>
+            <li>Over the entire time period (e.g. 1984-2018), there have been large declines in high-level COT and mid-level CA across the planet in line with the general (global) increase in SSR. On the contrary, there were large increases in the COT of middle and low clouds as well as of low-level cloud amount over the SH and the oceans. The AOD decreased except overland areas of the SH. According to our analysis, the major drivers of GDB (brightening) have been changes (decreases) in mid-level CA and high-level COT, while the contribution of the AOD changes (decreases) is remarkable over specific land areas with intense anthropogenic pollution, such as Europe, India and East China. The contribution of other aerosol optical properties, i.e. SSA, AP, as well as of water vapor and ozone was insignificant.</li>
+            <li>During the 1980s (1984-1989), AOD generally decreased, whereas COT decreased above land and high-level CA everywhere except over land of the SH. The existence of positive and negative trends of the GDB drivers resulted either in a weak dimming, as in the NH and over land, or in a weak brightening, as in the SH or globally. AOD changes had the largest contribution to GDB during this decade either globally or over 11/18 land areas, being followed by changes in high-level CA.</li>
+            <li>Throughout the 1990s, large reductions in AOD, COT, and partially in CA, explain the general increase in SSR during this decade. More specifically, AOD changes are found to have been the strongest contributor to GDB during this decade in general, and over 11/18 land areas, followed by changes in high-level CA. Notably, water vapor, in spite of its generally weak role for GDB, showed some significant contribution over Australia and Mexico.</li>
+            <li>Across the 2000s, AOD, and cloud amount of low- and high-level clouds increased, while COT and mid-level CA largely decreased. The coincidence of these trends led to an overall weak brightening. Especially, the changes of high-level COT, followed by those of AOD, had the strongest contribution to GDB in the 2000s either globally or over 7/18 land areas. Besides, SSA changes had significant contribution to GDB over East China.</li>
+            <li>In the 2010s, there were large reductions in both clouds and aerosols, being stronger over land areas. On the contrary, there was an increase in COT of low clouds, and cloud amount of mid- and high-level clouds over the oceans. The general reduction in GDB drivers led to a general brightening, except over the oceans of SH where dimming prevailed. Changes in both AOD and clouds contributed strongly to GDB, with AOD being the most common contributor (over 8/18 land areas) followed by high-level CA. Moreover, water vapor significantly contributed over Mexico.</li>
+            <li>Overall, this work confirmed the decadal scale variability of SSR, revealing that SSR experienced notable changes during the last 4 decades since the early 1980s. It also proved the complex nature of the phenomenon, which changes magnitude, and even in sign, between adjacent world areas. The complexity is further strengthened since the causes of GDB (SSR changes) vary from a decade to another or from a region to another over the Earth. It was found that the drivers of the phenomenon are both natural and anthropogenic, which perplexes the situation even more. It is important that the changes of aerosol loads (AOD) were the main driver of GDB over areas with significant anthropogenic activity, namely Europe, East China and India. However, the role of AOD was significant also globally during the 1980s and 1990s.</li>
+            <li>These results highlight the climatic role of reduced anthropogenic particulate emissions which can mitigate their role towards counterbalancing greenhouse warming (GHW). On the other hand, cloud changes, especially changing COT of high-level clouds and CA of mid-level clouds, are the main GDB drivers globally and hemispherically over the entire climatic time period and also during the 2000s. Such changes in cloud properties can be the result of both natural and anthropogenic processes, which remains to be investigated. The present study certainly highlights the important role of GDB for the Earth’s climate, since it has the potential to induce a global radiative cooling/warming that has the ability either to weaken or strengthen greenhouse-gas induced warming.</li>
+            <li>Yet, although the FORTH-RTM GDB is in fairly good agreement with the stations’ GDB, it can be further improved and increase its reliability through substantial improvements in the model input satellite and reanalysis data. Such an improvement can further reduce the uncertainties about the causes of the estimated GDB.</li>
+            <li>The role of solar dimming and brightening (decadal changes in SSR) in relation to the recent global warming was also examined in the present study. According to the findings of this study, the estimated GDB phases are in line with the decadal variations of Tmean as well as Tmax, Tmin, and DTR over certain land areas of the globe with significant anthropogenic pollution, such as Europe and East Asia, as well as over global land. The interdecadal phases of GDB seem to complementarily modify and differentiate the rates of warming primarily caused by the monotonically increasing concentration of greenhouse gases.</li>
+            <li>More specifically, since the mid-1980s, when solar brightening took place, the global land mean temperature response, originally driven by the evolving anthropogenic greenhouse effect, was a rapid warming, which was decelerated or even stopped in the 2000s when solar dimming occurred and partly masked the anthropogenic greenhouse global warming. Then, during the transition from dimming to a renewed brightening in the 2010s, the greenhouse warming was no longer masked and the warming rates increased again. This relationship between GDB, namely the rates of change of SSR, and the Earth’s surface temperature during the 35-year period 1984-2018 is in line with the conclusions drawn by (Wild et al. 2007) for the decades from 1950-2000.</li>
+            <li>Moreover, it is found that the inter-annual SSR variation also plays a roleto the year-to-year changes of the Earth’s surface temperature, although of course these are also driven by other factors, e.g. anthropogenic greenhouse gases warming, volcanic eruptions or ENSO (Gou et al. 2022; Santer 2014; Solomon 2011; Watanabe et al. 2014).</li>
+            <li>The GDB was found to largely drive and to be more strongly related to Tmax and secondarily to the mean surface-air temperature and the daily temperature range. The derived conclusions are more valid over the global land than ocean areas and apply to a considerable degree on the global scale. Also, in many regions where strong brightening occurred, Tmax increased more than Tmin (which increased primarily due to greenhouse warming), leading to an increase of DTR, confirming that GDB plays an important role in the Tmax and DTR changes. However, the rates of brightening before and after the 2000s’ dimming are not associated with proportional surface warming rates, confirming the complexity of the straight connection between SSRand surface temperature changes as well as the importance of the anthropogenic greenhouse effect as main factor of the ongoing global warming.</li>
+        </ul>
+    </div>
+    <h2 class="fancy-heading">My Papers</h2>
+    <ul class="fancy-text22">
+        <li>
+            <div>
+                <span>
+                    Paper I <br>
+                    <strong>Stamatis, M.</strong>; Hatzianastassiou, N.; Korras-Carraca, M.B.; Matsoukas, C.; Wild, M.; Vardavas, I. Interdecadal Changes of the MERRA-2 Incoming Surface Solar Radiation (SSR) and Evaluation against GEBA & BSRN Stations. Appl. Sci. 2022, 12, 10176.
+                    <a href="https://doi.org/10.3390/app121910176" target="_blank">https://doi.org/10.3390/app121910176</a>
+                </span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>
+                    Paper II <br>
+                    <strong>Stamatis, M.</strong>; Hatzianastassiou, N.; Korras-Carraca, M.-B.; Matsoukas, C.; Wild, M.; Vardavas, I. An Assessment of Global Dimming and Brightening during 1984–2018 Using the FORTH Radiative Transfer Model and ISCCP Satellite and MERRA-2 Reanalysis Data. Atmosphere 2023, 14, 1258.
+                    <a href="https://doi.org/10.3390/atmos14081258" target="_blank">https://doi.org/10.3390/atmos14081258</a>
+                </span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>
+                    Paper III <br>
+                    <strong>Stamatis, M.</strong>; Hatzianastassiou, N.; Korras-Carraca, M.-B.; Matsoukas, C.; Wild, M.; Vardavas, I. How strong are the links between global warming and surface solar radiation changes? Climatic Change 177, 156 (2024).
+                    <a href="https://doi.org/10.1007/s10584-024-03810-6" target="_blank">https://doi.org/10.1007/s10584-024-03810-6</a>
+                </span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>
+                    Paper IV <br>
+                    <strong>Stamatis, M.</strong>; Hatzianastassiou, N.; Korras-Carraca, M.-B.; Matsoukas, C.; Wild, M.; Vardavas, I. Which are the main drivers of Global Dimming and Brightening? Atmospheric Research, Volume 322, 2025, 108140, ISSN 0169-8095.
+                    <a href="https://doi.org/10.1016/j.atmosres.2025.108140" target="_blank">https://doi.org/10.1016/j.atmosres.2025.108140</a>
+                </span>
+            </div>
+        </li>
+    </ul>
+
+
+    <h2 class="fancy-heading">My Thesis</h2>
+    <ul class="fancy-text22">
+
+            <div>
+                <span>
+                    Detailed assessment of the global dimming and brightening of the Earth under all-sky and clear sky conditions using modern tools and long-term climate data. <br>
+                    <strong>Michael Stamatis</strong>
+                    <a href="https://www.didaktorika.gr/eadd/handle/10442/59941" target="_blank">https://www.didaktorika.gr/eadd/handle/10442/59941</a>
+                </span>
+            </div>
+
+    </ul>
+
+
+</div>
+
+    {{ document }}
+
+
+  
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    // Particles.js configuration
+    particlesJS('particles-js',
+{
+    "particles": {
+      "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.4 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true, "distance": 150,
+        "color": "#ffffff", "opacity": 0.2, "width": 1
+      },
+      "move": { "enable": true, "speed": 1.5 }
+    }
+  }
+    );
+</script>
+</body>
+</html>
+
+
+
+
