@@ -30,7 +30,7 @@ Investigate the SSR changes, their causes and their links with other climatic va
 
 
 ## Live 
-<a href="https://huggingface.co/spaces/mixstam1453/EarthSense" target="_blank" rel="noopener noreferrer">
+<a href="https://mixstam1453-earthsense.hf.space/landing" target="_blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/%20Open%20in%20Spaces-purple" alt="EarthSense" width="170">
 </a>
 
