@@ -310,7 +310,7 @@ p1_.border_fill_color = "#2d2d2d"
 p1_.toolbar_location = None
 
 
-color_mapper = LinearColorMapper(palette=Turbo256, low=0, high=390)
+color_mapper = LinearColorMapper(palette=Turbo256, low=40, high=390)
 color_bar = ColorBar(
     color_mapper=color_mapper,
     location=(0, 0),
