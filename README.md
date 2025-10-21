@@ -118,7 +118,7 @@ cd EarthSense
 docker build -t earthsense .
 ```
 
-4. Run the container and expose port 9797 and 9798
+4. Run the container and expose port 7860
 ```bash
 docker run -p 7860:7860 earthsense
 ```
