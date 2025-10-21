@@ -120,12 +120,12 @@ docker build -t earthsense .
 
 4. Run the container and expose port 9797 and 9798
 ```bash
-docker run -p 9797:9797 -p 9798:9798 earthsense
+docker run -p 7860:7860 earthsense
 ```
 
 5. Open your browser and navigate to:
 ```
-http://0.0.0.0:9797/
+http://0.0.0.0:7860/landing
 ```
 
 ## Structure
