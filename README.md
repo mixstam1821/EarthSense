@@ -37,7 +37,7 @@ Investigate the SSR changes, their causes and their links with other climatic va
 ## Demo
 Here’s how **EarthSense** looks in action 👇  
 
-![Demo](assets/ES_1.gif)
+![Demo](assets/ES1.gif)
 ![Demo](assets/ES2.gif)
 ![Demo](assets/ES3.gif)
 ![Demo](assets/ES4.gif)
