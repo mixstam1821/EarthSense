@@ -87,7 +87,7 @@ chmod +x start.sh
 
 7. Open your browser and navigate to:
 ```
-http://0.0.0.0:9797/
+http://0.0.0.0:7860/landing
 ```
 
 -OR-
