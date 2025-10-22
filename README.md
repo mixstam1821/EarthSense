@@ -135,11 +135,27 @@ EarthSense/
 ├── data/
 │   ├── 10 files downloaded from https://zenodo.org/records/17382343
 ├── bokeh_apps/
+│   ├── about/
+|   │   ├── main.py
+|   │   ├── templates/
+|   │   |    ├── index.html
+|   │   ├── static/
+│   ├── intro/
+|   │   ├── main.py
+|   │   ├── templates/
+|   │   |    ├── index.html
+|   │   ├── static/
+│   ├── landing/
+|   │   ├── main.py
+|   │   ├── templates/
+|   │   |    ├── index.html
+|   │   ├── static/
 │   ├── app1_mirror.py
 │   ├── app2_mirror.py
 │   └── app3_mirror.py
 ├── requirements.txt
 ├── start.sh
+├── some files
 └── README.md
 ```
 
